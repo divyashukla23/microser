@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  account:
+    build: ./account
+    container_name: account
+    networks: ["micro-net"]
+  inventory:
+    build: ./inventory
+    container_name: inventory
+    networks: ["micro-net"]
+  gateway:
+    image: nginx:alpine
+    container_name: gateway
+    volumes: 
+      - ./gateway/nginx.conf:/etc/nginx/conf.d/deafult.conf:ro
+    ports:
+      - "8080:80"
+    depends_on:
+      - account
+      - inventory
+    networks: ["micro-net"]
+  
+networks:
+  micro-net:
+    driver: bridge
