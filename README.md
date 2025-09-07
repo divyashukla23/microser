@@ -28,19 +28,19 @@ micro-demo/
 ## 🚀 Quick Start
 
 ### 1. Build the images
-```bash
+```
 docker-compose build
 ````
 
 ### 2. Start the services
 
-```bash
+```
 docker-compose up -d
 ```
 
 ### 3. Test endpoints
 
-```bash
+```
 curl http://localhost:8080/                        # → gateway ok
 curl http://localhost:8080/account/api/v1/users    # → list of users
 curl http://localhost:8080/inventory/api/v1/products  # → list of products
@@ -52,31 +52,31 @@ curl http://localhost:8080/inventory/api/v1/products  # → list of products
 
 * View running containers:
 
-  ```bash
+  ```
   docker ps
   ```
 
 * Follow logs:
 
-  ```bash
+  ```
   docker-compose logs -f
   ```
 
 * Stop services:
 
-  ```bash
+  ```
   docker-compose down
   ```
 
 * Stop & remove everything (containers, images, networks):
 
-  ```bash
+  ```
   docker-compose down --rmi local
   ```
 
 * Rebuild after code changes:
 
-  ```bash
+  ```
   docker-compose build
   docker-compose up -d
   ```
@@ -102,7 +102,7 @@ curl http://localhost:8080/inventory/api/v1/products  # → list of products
 * **Gateway returns 502** → check if `account` and `inventory` containers are running (`docker ps`).
 * **Code changes not reflected** → rebuild containers:
 
-  ```bash
+  ```
   docker-compose build
   docker-compose up -d
   ```
@@ -113,7 +113,7 @@ curl http://localhost:8080/inventory/api/v1/products  # → list of products
 
 To remove everything:
 
-```bash
+```
 docker-compose down --rmi local
 ```
 
